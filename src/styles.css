@@ -18,6 +18,20 @@ body {
 button {
   font-family: var(--font-family), sans-serif;
 }
+.primary-button {
+  padding: 12px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.primary-button:hover {
+  background-color: #780000;
+}
 
 button.primary {
   background-color: var(--primary-color);

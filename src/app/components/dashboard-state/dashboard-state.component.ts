@@ -59,14 +59,11 @@ export class DashboardStateComponent implements OnInit {
 
     data.forEach((entry) => {
       const { state } = entry;
-
       if (!stateCounts[state]) {
         stateCounts[state] = 0;
       }
-
       stateCounts[state] += 1;
     });
-
 
     this.chartData = {
       labels: Object.keys(stateCounts),

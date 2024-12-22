@@ -1,5 +1,18 @@
 <app-header></app-header>
 <main>
   <app-input-data></app-input-data>
-  <app-dashboard-state></app-dashboard-state>
+
+  <div class="dashboard-buttons">
+    <button class="primary-button" *ngFor="let btn of buttons; let i = index" (click)="showDashboard(i + 1)">
+      {{ btn }}
+    </button>
+  </div>
+
+  <ng-container *ngIf="activeDashboard">
+    <app-dashboard-state *ngIf="activeDashboard === 1"></app-dashboard-state>
+    <app-dashboard-bmi-age *ngIf="activeDashboard === 2"></app-dashboard-bmi-age>
+    <app-dashboard-overweight *ngIf="activeDashboard === 3"></app-dashboard-overweight>
+    <app-dashboard-avg-year *ngIf="activeDashboard === 4"></app-dashboard-avg-year>
+    <app-dashboard-possible-receivers *ngIf="activeDashboard === 5"></app-dashboard-possible-receivers>
+  </ng-container>
 </main>
