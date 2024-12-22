@@ -1,0 +1,19 @@
+<div class="input-container">
+  <h2>Dados</h2>
+
+  <h3>Insira os dados em JSON abaixo:</h3>
+  <textarea
+    class="json-input"
+    placeholder="Insira o JSON aqui..."
+    rows="8"
+    [(ngModel)]="jsonInput">
+  </textarea>
+
+  <h3>Ou faça o upload do arquivo JSON:</h3>
+  <button class="file-upload-button">
+    Selecionar Arquivo
+    <input type="file" class="file-input" (change)="onFileUpload($event)" />
+  </button>
+
+  <button class="primary-button" (click)="onSubmitJson()">Enviar Dados</button>
+</div>
