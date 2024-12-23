@@ -1,59 +1,99 @@
-# DonorUi
+# Aplicação de Processamento de Doadores
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+Este projeto é uma aplicação frontend baseada em Angular projetada para gerenciar e visualizar dados relacionados a doadores de sangue. Os usuários podem fazer upload de um arquivo JSON ou inserir dados por meio de um campo de texto para que as informações sejam processadas por um sistema backend. Os dados processados são usados para criar visualizações informativas.
 
-## Development server
+---
 
-To start a local development server, run:
+## **Funcionalidades**
+
+### **1. Autenticação de Usuário**
+
+- O usuário deve efetuar login para acessar a aplicação.
+- Credenciais de acesso:
+  - **Usuário:** `admin`
+  - **Senha:** `12345678`
+
+---
+
+### **2. Upload de Arquivo ou Entrada de Texto**
+
+- Os usuários podem fornecer os dados por meio de um arquivo JSON ou inserir diretamente os dados no formato JSON em um campo de texto.
+- Os dados fornecidos serão processados pelo backend.
+
+---
+
+### **3. Visualizações de Dados**
+
+A aplicação gera as seguintes visualizações e informações baseadas nos dados processados:
+
+1. **Número de Candidatos por Estado:**
+
+- Um gráfico exibe quantos candidatos existem na lista para cada estado do Brasil.
+
+2. **IMC (Índice de Massa Corporal) Médio por Faixa Etária:**
+
+- Calcula o IMC médio para intervalos de idade em incrementos de 10 anos (Ex.: 0–10, 11–20, 21–30, etc.).
+- Fórmula:  
+  **IMC = peso / (altura²)**
+
+3. **Percentual de Obesidade por Gênero:**
+
+- Mostra o percentual de pessoas obesas separadamente para homens e mulheres.
+- Um candidato é considerado obeso se seu IMC > 30.
+
+4. **Média de Idade por Tipo Sanguíneo:**
+
+- Determina e exibe a média de idade para cada tipo sanguíneo.
+
+5. **Quantidade de Possíveis Doadores por Tipo Sanguíneo Receptor:**
+
+- Calcula e exibe quantos doadores potenciais existem para cada tipo sanguíneo receptor.
+
+---
+
+## **Configuração do Ambiente de Desenvolvimento**
+
+### **1. Servidor de Desenvolvimento**
+
+Para executar o servidor de desenvolvimento:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Após iniciar, abra seu navegador e vá para `http://localhost:4200/`. A aplicação recarregará automaticamente caso você realize alterações nos arquivos-fonte.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### **2. Construção**
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Para compilar o projeto para produção, execute:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Isso criará a aplicação e armazenará a saída na pasta `dist/`.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## **Requisitos Técnicos**
 
-```bash
-ng test
-```
+- **Necessário NodeJs 20 ou superior**
 
-## Running end-to-end tests
+## **Detalhes para Login**
 
-For end-to-end (e2e) testing, run:
+- **Usuário:** `admin`
+- **Senha:** `12345678`
 
-```bash
-ng e2e
-```
+Essas credenciais devem ser usadas para acessar a aplicação.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## **Visualizações e Funcionalidades**
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Distribuição de candidatos por estado.
+2. IMC médio por faixa etária.
+3. Percentual de obesidade por gênero.
+4. Média de idade por tipo sanguíneo.
+5. Potenciais doadores para cada tipo sanguíneo receptor.
