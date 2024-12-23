@@ -44,7 +44,7 @@ export class DonorValidator {
       }
     }
 
-    return { valid: errors.length === 0, errors };
+    return {valid: errors.length === 0, errors};
   }
 
   public static validateList(donors: Array<Record<string, any>>): { valid: boolean; errors: string[] } {
@@ -58,6 +58,6 @@ export class DonorValidator {
       }
     });
 
-    return { valid: errors.length === 0, errors };
+    return {valid: errors.length === 0, errors};
   }
 }

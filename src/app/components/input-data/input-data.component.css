@@ -53,6 +53,7 @@
   opacity: 0;
   cursor: pointer;
 }
+
 .primary-button {
   padding: 12px 20px;
   background-color: var(--primary-color);

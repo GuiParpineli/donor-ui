@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Chart, ChartData, ChartOptions, registerables } from 'chart.js';
-import { NgChartsModule } from 'ng2-charts';
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Chart, ChartData, ChartOptions, registerables} from 'chart.js';
+import {NgChartsModule} from 'ng2-charts';
 
 Chart.register(...registerables);
 
@@ -19,8 +19,8 @@ export class DashboardStateComponent implements OnInit {
       {
         label: 'Quantidade de Pessoas por Estado',
         data: [],
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        borderColor: 'rgba(54, 162, 235, 1)',
+        backgroundColor: '#ed6161',
+        borderColor: '#b11d1d',
         borderWidth: 1,
       },
     ],
@@ -37,19 +37,18 @@ export class DashboardStateComponent implements OnInit {
 
   private apiUrl = 'http://localhost:8080/public/api/donor/all';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   ngOnInit(): void {
     this.loadData();
   }
 
   private loadData(): void {
-    this.http.get<any[]>(this.apiUrl).subscribe({
+    this.http.get<any[]>(this.apiUrl).subscribe(
+      {
       next: (response) => {
         this.processData(response);
-      },
-      error: (error) => {
-        console.error('Erro ao carregar os dados:', error);
       },
     });
   }
@@ -58,7 +57,7 @@ export class DashboardStateComponent implements OnInit {
     const stateCounts: Record<string, number> = {};
 
     data.forEach((entry) => {
-      const { state } = entry;
+      const {state} = entry;
       if (!stateCounts[state]) {
         stateCounts[state] = 0;
       }
@@ -71,13 +70,11 @@ export class DashboardStateComponent implements OnInit {
         {
           label: 'Quantidade de Pessoas por Estado',
           data: Object.values(stateCounts),
-          backgroundColor: 'rgba(54, 162, 235, 0.2)',
-          borderColor: 'rgba(54, 162, 235, 1)',
+          backgroundColor: '#ed6161',
+          borderColor: '#b11d1d',
           borderWidth: 1,
         },
       ],
     };
-
-    console.log('Dados processados para o gráfico:', this.chartData);
   }
 }

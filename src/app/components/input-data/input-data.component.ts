@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import {Component} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 import {DonorValidator} from './DonorValidatorUtils';
 
 @Component({
@@ -14,7 +14,8 @@ export class InputDataComponent {
   jsonInput: string = '';
   apiUrl: string = 'http://127.0.0.1:8080/public/api/donor/save';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   onFileUpload(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -53,11 +54,10 @@ export class InputDataComponent {
       this.http.post(this.apiUrl, jsonData).subscribe({
         next: (response) => {
           alert('Dados enviados com sucesso!');
-          console.log('Resposta da API:', response);
+          this.jsonInput = '';
         },
         error: (err) => {
           alert('Erro ao enviar os dados.');
-          console.error('Erro na requisição:', err);
         },
       });
     } catch (error) {
