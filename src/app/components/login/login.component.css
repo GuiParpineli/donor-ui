@@ -1,0 +1,85 @@
+/* Estilos para a página de login */
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #93fadb;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  align-items: center;
+  padding: 20px 30px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  width: 100%;
+}
+
+h3 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+form {
+  width: 100%;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: var(--primary-color, #007bff);
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text-color, #fff);
+  background-color: var(--primary-color, #007bff);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: var(--primary-color, #0056b3);
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.error-message {
+  font-size: 14px;
+  color: #ff0000;
+  text-align: center;
+  margin-top: 10px;
+}

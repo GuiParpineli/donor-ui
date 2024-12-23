@@ -1,9 +1,13 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';
-import { AppComponent } from './app/app.component';
+import {bootstrapApplication} from '@angular/platform-browser';
+import {AppComponent} from './app/app.component';
+import {provideRouter} from '@angular/router';
+import {provideHttpClient, withInterceptors} from '@angular/common/http';
+import {authInterceptor} from './app/interceptors/auth.interceptor';
+import {routes} from './app/app.routes';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideHttpClient(), // Habilita o uso do HttpClient na aplicação
-  ]
+    provideRouter(routes),
+    provideHttpClient(withInterceptors([authInterceptor])),
+  ],
 }).catch((err) => console.error(err));

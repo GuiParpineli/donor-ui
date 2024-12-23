@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Chart, ChartData, ChartOptions, registerables} from 'chart.js';
 import {NgChartsModule} from 'ng2-charts';
+import {ENDPOINTS} from '../../utils/Endpoints';
 
 Chart.register(...registerables);
 
@@ -35,7 +36,7 @@ export class DashboardAvgYearComponent implements OnInit {
     },
   };
 
-  private apiUrl = 'http://localhost:8080/public/api/donor/yearAverage';
+  private apiUrl = ENDPOINTS.YEAR_AVERAGE;
 
   constructor(private http: HttpClient) {
   }

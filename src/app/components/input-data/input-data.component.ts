@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {DonorValidator} from './DonorValidatorUtils';
+import {ENDPOINTS} from '../../utils/Endpoints';
 
 @Component({
   selector: 'app-input-data',
@@ -12,7 +13,7 @@ import {DonorValidator} from './DonorValidatorUtils';
 })
 export class InputDataComponent {
   jsonInput: string = '';
-  apiUrl: string = 'http://127.0.0.1:8080/public/api/donor/save';
+  apiUrl: string = ENDPOINTS.SAVE;
 
   constructor(private http: HttpClient) {
   }
@@ -52,11 +53,11 @@ export class InputDataComponent {
       }
 
       this.http.post(this.apiUrl, jsonData).subscribe({
-        next: (response) => {
+        next: () => {
           alert('Dados enviados com sucesso!');
           this.jsonInput = '';
         },
-        error: (err) => {
+        error: () => {
           alert('Erro ao enviar os dados.');
         },
       });
